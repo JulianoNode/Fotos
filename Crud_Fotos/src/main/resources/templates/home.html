@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+		<main role="main">
+			<br> <br>
+			<div>
+				<img class="d-block mx-auto" th:src="@{/image/top.png}" width="1080"
+					height="80">
+			</div>
+			<img class="d-block mx-auto mb-4" th:src="@{/image/cadastro.png}"
+				width="400" height="100">
+			<div class="container">
+				<h1 class="jumbotron-heading">Cadastro de File</h1>
+				<p class="lead text-muted">CRUD (Create, Read, Update e Delete
+					em Inglês) é uma sigla utilizada para se referir às quatro
+					operações básicas realizadas em banco de dados relacionais que são
+					consulta, inclusão, alteração e exclusão dos registros.</p>
+			</div>
+
+
+			<div class="album py-5 bg-light">
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<img class="card-img-top" th:src="@{/image/dev_1.png}">
+								<div class="card-body">
+									<h5 class="card-title">Spring-Boot</h5>
+									<p class="card-text">O Java Spring Framework (Spring
+										Framework) é um framework bastante conhecido de nível
+										empresarial, de software livre, para criar aplicativos
+										independentes de nível de produção que são executados na Java
+										Virtual Machine (JVM)...</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<img class="card-img-top" th:src="@{/image/dev_2.png}">
+								<div class="card-body">
+									<h5 class="card-title">Java</h5>
+									<p class="card-text">Java é uma linguagem de programação e
+										plataforma de computação liberada pela primeira vez pela Sun
+										Microsystems em 1995. De um início humilde, ela evoluiu para
+										uma grande participação no mundo digital dos dias atuais...</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<img class="card-img-top" th:src="@{/image/dev_5.png}">
+								<div class="card-body">
+									<br>
+									<h5 class="card-title">MySQL</h5>
+									<p class="card-text">O MySQL é um sistema de gerenciamento
+										de banco de dados (SGBD), que utiliza a linguagem SQL
+										(Linguagem de Consulta Estruturada, do inglês Structured Query
+										Language) como interface. É atualmente um dos sistemas de
+										gerenciamento de bancos de dados mais populares da Oracle
+										Corporation, com mais de 10 milhões de instalações pelo mundo.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<img class="card-img-top" th:src="@{/image/dev_4.png}">
+								<div class="card-body">
+									<h5 class="card-title">HTML</h5>
+									<p class="card-text">HTML é uma linguagem de marcação
+										utilizada na construção de páginas na Web. Documentos HTML
+										podem ser interpretados por navegadores. A tecnologia é fruto
+										da junção entre os padrões HyTime e SGML.</p>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<img class="card-img-top" th:src="@{/image/dev_3.png}">
+								<div class="card-body">
+									<br>
+									<h5 class="card-title">JavaScript</h5>
+									<p class="card-text">JavaScript é uma linguagem de
+										programação interpretada estruturada, de script em alto nível
+										com tipagem dinâmica fraca e multiparadigma. Juntamente com
+										HTML e CSS, o JavaScript é uma das três principais tecnologias
+										da World Wide Web.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<img class="card-img-top" th:src="@{/image/dev_6.png}">
+								<div class="card-body">
+									<h5 class="card-title">BootStrap</h5>
+									<p class="card-text">Bootstrap é um framework web com
+										código-fonte aberto para desenvolvimento de componentes de
+										interface e front-end para sites e aplicações web, usando
+										HTML, CSS e JavaScript, baseado em modelos de design para a
+										tipografia, melhorando a experiência do usuário em um site
+										amigável e responsivo.</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</main>
+	</section>
+	<script th:src="~{}" th:fragment="js"></script>
+	<script th:inline="javascript" th:fragment="inlinescript"></script>
+</body>
+</html>
