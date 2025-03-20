@@ -2,6 +2,8 @@ package com.jmr.app.service;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Optional;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -47,9 +49,32 @@ public class FileService {
 
 	@Transactional(readOnly = false)
 	public void salvar(File file, MultipartFile fileImage) throws IOException {
-		if (!fileImage.isEmpty()) {
-			file.setImage(fileImage.getBytes());
-		}
+		
+        if (file.getId() != null) {
+            // Buscar arquivo existente no banco
+            Optional<File> existingFile = repository.findById(file.getId());
+            
+            if (existingFile.isPresent()) {
+                File oldFile = existingFile.get();
+
+                // Se o usuário não enviou nova imagem, manter a antiga
+                if (fileImage == null || fileImage.isEmpty()) {
+                    file.setImage(oldFile.getImage());
+                    file.setContentType(oldFile.getContentType());
+                    file.setTitulo(oldFile.getTitulo());
+                } else {
+                    // Atualizar com nova imagem
+                    file.setTitulo(fileImage.getOriginalFilename());
+                    file.setImage(fileImage.getBytes());
+                    file.setContentType(fileImage.getContentType());
+                }
+            }
+        } else if (fileImage != null && !fileImage.isEmpty()) {
+            // Criando um novo arquivo com imagem
+            file.setTitulo(fileImage.getOriginalFilename());
+            file.setImage(fileImage.getBytes());
+            file.setContentType(fileImage.getContentType());
+        }
 		repository.save(file);
 	}
 

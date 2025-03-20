@@ -1,10 +1,26 @@
+function previewImage(event) {
+	const file = event.target.files[0];
+	const imagePreview = document
+			.getElementById('imagePreview');
+	const imageName = document.getElementById('imageName');
+
+	if (file) {
+		const reader = new FileReader();
+		reader.onload = function(e) {
+			imagePreview.src = e.target.result;
+			imageName.textContent = file.name;
+		};
+		reader.readAsDataURL(file);
+	}
+}
+
 $(document).ready(function() {
 	moment.locale('pt-BR');
 	var table = $('#table-fileCrud').DataTable({
 		"language": { "url": "//cdn.datatables.net/plug-ins/1.13.2/i18n/pt-BR.json" },
 		searching: true,
 		order: [[1, "asc"]],
-		lengthMenu: [2, 5, 10, 20, 50],
+		lengthMenu: [5, 3, 10, 20, 50],
 		processing: true,
 		serverSide: true,
 		responsive: true,
@@ -21,7 +37,7 @@ $(document).ready(function() {
 				}
 			},
 			{ data: 'titulo' },
-			{ data: 'descricao' },
+			
 			{
 				orderable: false,
 				data: 'id',

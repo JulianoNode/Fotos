@@ -3,6 +3,7 @@ package com.jmr.app.web.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -54,19 +55,21 @@ public class FileController {
 		try {
 			service.salvar(file, fileImage);
 			attr.addFlashAttribute("sucesso", "Operação realizada com sucesso!");
-		} catch (Exception e) {
-			attr.addFlashAttribute("aviso", "Erro ao salvar arquivo!");
-		}
+		} catch (DataIntegrityViolationException e) {
+	        attr.addFlashAttribute("aviso", "Já existe uma IMAGEM com este nome: "+file.getTitulo());
+	    } catch (Exception e) {
+	        attr.addFlashAttribute("falha", "Erro ao salvar arquivo!");
+	    }
 		return "redirect:/files";
 	}
 
 	@GetMapping("/image/{id}")
 	public ResponseEntity<byte[]> exibirImagem(@PathVariable Long id) {
 		byte[] image = service.buscarImagem(id);
+		
 		if (image != null) {
 			return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(image);
-		} else {
+		} else
 			return ResponseEntity.notFound().build();
-		}
 	}
 }
