@@ -15,65 +15,80 @@
 
 
 				<div class="container">
-					<div class="container">
-						<h2 class="d-flex justify-content-center">Cadastro de Imagem</h2>
+					<!-- Modal -->
+					<div class="modal fade" id="modalCadastroImagem" tabindex="-1"
+						role="dialog" aria-labelledby="modalCadastroImagemLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="modalCadastroImagemLabel">Cadastro
+										de Imagem</h5>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<form th:action="@{/files/salvar}" th:object="${file}"
+										method="POST" class="was-validated"
+										enctype="multipart/form-data">
+										<!-- Card de imagem -->
+										<script src="static/js/file.js"></script>
+										<div class="card" id="imageCard">
+											<img th:src="@{/image/image.png (id=${file.id})}"
+												alt="Imagem Selecionada" id="imagePreview"> <br>
+											<div class="col-sm-12">
+												<!-- Botão de upload de imagem -->
+												<input type="file" class="form-control custom-file-input"
+													id="fileImage" name="fileImage" accept="image/*"
+													onchange="previewImage(event)"> <label
+													for="fileImage" class="file-label">Escolher Imagem</label>
+											</div>
+										</div>
+
+										<input type="hidden" th:field="*{id}" />
+										<div class="form-group row">
+											<div class="col-sm-10">
+												<button type="submit" class="btn btn-primary"
+													data-toggle="tooltip" data-placement="right"
+													title="Cadastrar">
+													Cadastrar <i class="fas fa-save"></i>
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<h2 class="d-flex justify-content-center">Cadasto e Listagem
+						de Imagem</h2>
+					<hr class="id_hr">
+					<div class="d-flex justify-content-center mt-4">
+						<button type="button" class="btn btn-info " data-toggle="modal"
+							data-target="#modalCadastroImagem">Cadastrar Imagem</button>
 					</div>
 					<hr class="id_hr1">
 					<hr class="id_hr2">
 					<hr class="id_hr3">
-					<div class="d-flex justify-content-center">
-						<div class="col-md-12">
-							<div th:replace="fragments/alert"></div>
-							<form th:action="@{/files/salvar}" th:object="${file}"
-								method="POST" class="was-validated"
-								enctype="multipart/form-data">
-								<!-- Card de imagem -->
-								<script src="static\js\file.js"></script>
-								<div class="card" id="imageCard">
-									<img th:src="@{/image/image.png (id=${file.id})}"
-										alt="Imagem Selecionada" id="imagePreview"> <br>
-									<div class="col-sm-12">
-										<!-- Botão de upload de imagem -->
-										<input type="file" class="form-control custom-file-input"
-											id="fileImage" name="fileImage" accept="image/*"
-											onchange="previewImage(event)"> <label
-											for="fileImage" class="file-label">Escolher Imagem</label>
-									</div>
-								</div>
-
-								<input type="hidden" th:field="*{id}" />
-								<div class="form-group row">
-									<div class="col-sm-10">
-										<button type="submit" class="btn btn-primary"
-											data-toggle="tooltip" data-placement="right"
-											title="Cadastrar">
-											Cadastrar <i class="fas fa-save"></i>
-										</button>
-									</div>
-								</div>
-							</form>
-							<hr class="id_hr">
-							<h2 class="d-flex justify-content-center">Lista de Imagem</h2>
-							<hr class="id_hr1">
-							<hr class="id_hr2">
-							<hr class="id_hr3">
-							<table id="table-fileCrud"
-								class="table table-sm table-striped table-bordered nowrap"
-								style="width: 100%">
-								<thead class="thead-dark">
-									<tr>
-										<th scope="col">ID</th>
-										<th scope="col">Image</th>
-										<th scope="col">Nome</th>
-										<th scope="col">Editar</th>
-										<th scope="col">Excluir</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
+					<table id="table-fileCrud"
+						class="table table-sm table-striped table-bordered nowrap"
+						style="display: none; width: 100%;">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Image</th>
+								<th scope="col">Nome</th>
+							</tr>
+						</thead>
+					</table>
+					<div class="container">
+						<div id="card-container" class="row"></div>
+						<!-- Container para os cards -->
 					</div>
 				</div>
 			</div>
+
 		</main>
 	</section>
 	<script th:src="@{/js/file.js?(v=${version})}" th:fragment="js"></script>

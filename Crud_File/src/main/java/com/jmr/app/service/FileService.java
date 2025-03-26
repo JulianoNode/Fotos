@@ -33,7 +33,7 @@ public class FileService {
 		datatables.setRequest(request);
 		datatables.setColunas(DatatablesColunas.FILES);
 		Page<?> page = datatables.getSearch().isEmpty() ? repository.findAll(datatables.getPageable())
-				: repository.findAllByTitulo(datatables.getSearch(), datatables.getPageable());
+				: repository.findAllBynome(datatables.getSearch(), datatables.getPageable());
 		return datatables.getResponse(page);
 	}
 
@@ -61,17 +61,17 @@ public class FileService {
                 if (fileImage == null || fileImage.isEmpty()) {
                     file.setImage(oldFile.getImage());
                     file.setContentType(oldFile.getContentType());
-                    file.setTitulo(oldFile.getTitulo());
+                    file.setnome(oldFile.getnome());
                 } else {
                     // Atualizar com nova imagem
-                    file.setTitulo(fileImage.getOriginalFilename());
+                    file.setnome(fileImage.getOriginalFilename());
                     file.setImage(fileImage.getBytes());
                     file.setContentType(fileImage.getContentType());
                 }
             }
         } else if (fileImage != null && !fileImage.isEmpty()) {
             // Criando um novo arquivo com imagem
-            file.setTitulo(fileImage.getOriginalFilename());
+            file.setnome(fileImage.getOriginalFilename());
             file.setImage(fileImage.getBytes());
             file.setContentType(fileImage.getContentType());
         }

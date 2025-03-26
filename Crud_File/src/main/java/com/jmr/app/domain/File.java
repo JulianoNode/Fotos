@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name = "files", indexes = { @Index(name = "idx_file_file", columnList = "file") })
 public class File extends AbstractEntity {
 	@Column(name = "file", unique = true, nullable = false, length = 50)
-	private String titulo;
+	private String nome;
 	@Column(name = "contentType", columnDefinition = "TEXT")
 	private String contentType;
 	@Lob
@@ -15,8 +15,8 @@ public class File extends AbstractEntity {
 	private byte[] image;
 	
 	//______ Get e Set _____
-	public String getTitulo() {return titulo;}
-	public void setTitulo(String titulo) {this.titulo = titulo;}
+	public String getnome() {return nome;}
+	public void setnome(String nome) {this.nome = nome;}
 	public String getContentType() {return contentType;}
 	public void setContentType(String contentType) {this.contentType = contentType;}
 	public byte[] getImage() {return image;}

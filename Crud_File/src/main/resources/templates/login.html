@@ -42,7 +42,7 @@
 			<p class="text-muted">Realize seu login para continuar</p>					
 			<div th:if="${alerta != null}" th:class="${alerta == 'erro'} ? 'alert alert-danger' : 'alert alert-success'"
 				 role="alert">
-			  <h4 th:text="${titulo}" class="alert-heading">Credenciais...</h4>
+			  <h4 th:text="${nome}" class="alert-heading">Credenciais...</h4>
 			  <p th:text="${texto}">Login ou senha incorretos...</p>
 			  <hr>
 			  <p class="mb-0"><small th:text="${subtexto}">Acesso permitido...</small></p>

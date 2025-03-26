@@ -29,20 +29,20 @@ public class Tabelas {
 	}
 	
 	public String runPrivacidade () {
-		return "\n\t|_ Progeto Privacidade: titulo/descrição " ;
+		return "\n\t|_ Progeto Privacidade: nome/descrição " ;
 	}
 	
 	
 	public String runEspecialidade () {
-		return "\n\t|_ Progeto Especialidade: titulo/descrição " ;
+		return "\n\t|_ Progeto Especialidade: nome/descrição " ;
 	}
 	
 	public String runGenero () {
-		return "\n\t|_ Progeto Genero: titulo/descrição " ;
+		return "\n\t|_ Progeto Genero: nome/descrição " ;
 	}
 	
 	public String runFormato () {
-		return "\n\t|_ Progeto Formato: Titulo \n" ;
+		return "\n\t|_ Progeto Formato: nome \n" ;
 	}	
 	
 	public String runAutor () {
@@ -59,7 +59,7 @@ public class Tabelas {
 	}
 	
 	public String runProduto () {
-		return "\n\t|_ Progeto Produto: link/titulo/imagem " ;
+		return "\n\t|_ Progeto Produto: link/nome/imagem " ;
 	}
 	
 	public String runValorParcela () {

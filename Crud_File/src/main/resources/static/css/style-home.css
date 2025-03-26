@@ -103,8 +103,8 @@
 
 /* Estilos para o card */
 .card {
-	width: 300px;
-	padding: 20px;
+	width: 250px;
+	padding: 2px;
 	border: 1px solid #ddd;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -115,7 +115,7 @@
 .card img {
 	width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: 4px;
 }
 
 .form-group {

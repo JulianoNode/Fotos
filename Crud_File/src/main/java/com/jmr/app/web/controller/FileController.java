@@ -56,7 +56,7 @@ public class FileController {
 			service.salvar(file, fileImage);
 			attr.addFlashAttribute("sucesso", "Operação realizada com sucesso!");
 		} catch (DataIntegrityViolationException e) {
-	        attr.addFlashAttribute("aviso", "Já existe uma IMAGEM com este nome: "+file.getTitulo());
+	        attr.addFlashAttribute("aviso", "Já existe uma IMAGEM com este nome: "+file.getnome());
 	    } catch (Exception e) {
 	        attr.addFlashAttribute("falha", "Erro ao salvar arquivo!");
 	    }
